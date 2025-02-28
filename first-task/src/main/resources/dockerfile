@@ -1,0 +1,14 @@
+# Используем базовый образ с Java 17
+FROM openjdk:17-jdk-alpine
+
+# Устанавливаем рабочую директорию
+WORKDIR /app
+
+# Копируем JAR файл в контейнер
+COPY target/my-spring-app.jar my-spring-app.jar
+
+# Открываем порт 8080
+EXPOSE 8080
+
+# Команда для запуска приложения
+ENTRYPOINT ["java", "-jar", "my-spring-app.jar"]
